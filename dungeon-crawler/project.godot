@@ -13,9 +13,7 @@ config_version=5
 config/name="Dungeon Crawler"
 run/main_scene="uid://b5uprb10cc7bs"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-boot_splash/stretch_mode=2
-boot_splash/image="uid://bftmbyhkkpfon"
-config/icon="uid://bkqp7nufunl4w"
+config/icon="res://icon.svg"
 
 [autoload]
 
