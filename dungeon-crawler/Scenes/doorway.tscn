@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dhvtkonseh87q"]
+
+[ext_resource type="Script" uid="uid://b8o7vrm6s2dp8" path="res://Scripts/doorway.gd" id="1_oqcyt"]
+[ext_resource type="Texture2D" uid="uid://diwx36ydpugfw" path="res://Resources/Sprites/Tiles/Dungeon.png" id="2_4ypqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqkje"]
+size = Vector2(48, 32)
+
+[node name="Doorway" type="Area2D" unique_id=1661232321]
+script = ExtResource("1_oqcyt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=518238118]
+texture = ExtResource("2_4ypqd")
+region_enabled = true
+region_rect = Rect2(96, 112, 48, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=487840068]
+shape = SubResource("RectangleShape2D_wqkje")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

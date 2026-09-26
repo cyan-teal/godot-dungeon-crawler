@@ -1,0 +1,197 @@
+[gd_scene format=3 uid="uid://dq4u5s8jd8jnh"]
+
+[ext_resource type="Script" uid="uid://tsfm35kdx8a7" path="res://Scripts/wizard.gd" id="1_ilitf"]
+[ext_resource type="Texture2D" uid="uid://cccruc3aw3cy" path="res://Resources/Sprites/Entities/wizard.png" id="2_33wk7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ilitf"]
+
+[sub_resource type="Animation" id="Animation_is68s"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50]
+}
+
+[sub_resource type="Animation" id="Animation_ilitf"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"attack_1"
+}, {
+"args": [],
+"method": &"change_to_chase"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_33wk7"]
+resource_name = "attack_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"attack_2"
+}, {
+"args": [],
+"method": &"change_to_chase"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mqqw1"]
+resource_name = "attack_3"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"attack_3"
+}, {
+"args": [],
+"method": &"change_to_chase"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_q6us4"]
+resource_name = "chase"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [38, 43]
+}
+
+[sub_resource type="Animation" id="Animation_h6nr7"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [50, 54]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6us4"]
+_data = {
+&"RESET": SubResource("Animation_is68s"),
+&"attack_1": SubResource("Animation_ilitf"),
+&"attack_2": SubResource("Animation_33wk7"),
+&"attack_3": SubResource("Animation_mqqw1"),
+&"chase": SubResource("Animation_q6us4"),
+&"idle": SubResource("Animation_h6nr7")
+}
+
+[node name="Wizard" type="CharacterBody2D" unique_id=1041200136 groups=["Enemies"]]
+script = ExtResource("1_ilitf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=58068349]
+position = Vector2(0, -5)
+texture = ExtResource("2_33wk7")
+hframes = 12
+vframes = 5
+frame = 50
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1506774920]
+scale = Vector2(0.60784554, 0.60784554)
+shape = SubResource("CircleShape2D_ilitf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1617789119]
+libraries/ = SubResource("AnimationLibrary_q6us4")
+autoplay = &"idle"
+
+[node name="InvincibilityTimer" type="Timer" parent="." unique_id=750758518]
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=1597256348]
+one_shot = true
+
+[node name="RegenTimer" type="Timer" parent="." unique_id=2106449971]
+one_shot = true
+
+[node name="HurtTimer" type="Timer" parent="." unique_id=1545337688]
+wait_time = 0.08
+one_shot = true
+
+[node name="ProjectileSpawnMarker" type="Marker2D" parent="." unique_id=150819524]
+position = Vector2(6, -8.5)
+
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]

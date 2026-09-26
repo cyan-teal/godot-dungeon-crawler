@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cw2ltrs4x4imk"]
+
+[ext_resource type="Script" uid="uid://8j25yxq5eg6t" path="res://Scripts/player_homing_arrrow.gd" id="1_1gp2i"]
+[ext_resource type="Texture2D" uid="uid://bkqp7nufunl4w" path="res://Resources/Sprites/Projectiles/arrow.png" id="2_4cwqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdo2k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1gp2i"]
+
+[node name="PlayerHomingArrrow" type="Area2D" unique_id=2029794559]
+script = ExtResource("1_1gp2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=992242072]
+texture = ExtResource("2_4cwqt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=841022074]
+position = Vector2(6, 0.5)
+scale = Vector2(0.2491693, 0.2491693)
+shape = SubResource("CircleShape2D_fdo2k")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1939814424]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1032543551]
+scale = Vector2(2.5, 2.5)
+shape = SubResource("CircleShape2D_1gp2i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bckulca1e7i6m"]
+
+[ext_resource type="Script" uid="uid://dapwk5g6i7dqn" path="res://Scripts/blue_slime_projectile.gd" id="1_volut"]
+[ext_resource type="Texture2D" uid="uid://c4vgfh6rjjock" path="res://Resources/Sprites/Projectiles/orb_blue.png" id="2_volut"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fdo2k"]
+
+[node name="SlimeProjectile" type="Area2D" unique_id=2029794559]
+script = ExtResource("1_volut")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=992242072]
+texture = ExtResource("2_volut")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=841022074]
+position = Vector2(2.842171e-14, 1.7763568e-15)
+scale = Vector2(0.2491693, 0.2491693)
+shape = SubResource("CircleShape2D_fdo2k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

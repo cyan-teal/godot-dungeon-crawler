@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b5uprb10cc7bs"]
+
+[ext_resource type="Texture2D" uid="uid://bftmbyhkkpfon" path="res://Resources/Sprites/UI/Title.png" id="1_28flt"]
+[ext_resource type="Script" uid="uid://00ciy0ywv3fr" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1494325612]
+script = ExtResource("1_48xlc")
+
+[node name="Control" type="Control" parent="." unique_id=907936587]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=2122685481]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.1
+anchor_right = 0.75
+anchor_bottom = 0.3
+offset_right = 40.0
+offset_bottom = 85.80629
+texture = ExtResource("1_28flt")
+expand_mode = 5
+
+[node name="Control" type="Control" parent="Control" unique_id=1139814803]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+
+[node name="Button2" type="Button" parent="Control/Control" unique_id=2083505497]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.3
+offset_top = 1.5258789e-05
+offset_right = 8.0
+offset_bottom = 31.000015
+text = "START GAME"
+
+[node name="Button" type="Button" parent="Control/Control" unique_id=1843124624]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(0.9760233, 1)
+text = "EXIT GAME"
+
+[connection signal="pressed" from="Control/Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="button_up" from="Control/Control/Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Control/Control/Button" to="." method="_on_button_pressed"]

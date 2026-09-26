@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://djrufki8qdxhd"]
+
+[ext_resource type="Script" uid="uid://dm2vdumuq3fqa" path="res://Scripts/player_ui.gd" id="1_dxtgh"]
+[ext_resource type="Texture2D" uid="uid://bndsfdnutfyph" path="res://Resources/Sprites/Pickups/coins-chests-etc-2-0-noborders.png" id="2_qipxh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46yqn"]
+atlas = ExtResource("2_qipxh")
+region = Rect2(320, 193.5, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxtgh"]
+bg_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qipxh"]
+bg_color = Color(0.9019608, 0.27058825, 0.22352941, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46yqn"]
+bg_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vi3dy"]
+bg_color = Color(0.225, 0.9, 0.77624995, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1648471168]
+script = ExtResource("1_dxtgh")
+
+[node name="Control" type="Control" parent="." unique_id=1838092295]
+layout_mode = 3
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.25
+anchor_bottom = 0.125
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1037378035]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 35.480003
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=2134890280]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer" unique_id=161846849]
+layout_mode = 2
+texture = SubResource("AtlasTexture_46yqn")
+expand_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer/HBoxContainer" unique_id=1593307644]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_dxtgh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qipxh")
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/VBoxContainer" unique_id=1220832024]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.078431375, 0.09411765, 0.18039216, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_46yqn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vi3dy")
+show_percentage = false
