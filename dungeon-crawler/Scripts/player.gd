@@ -4,7 +4,7 @@ signal player_shoot(player: CharacterBody2D, dir: Vector2)
 
 const DEATH_SCREEN = "res://Scenes/death_screen.tscn"
 
-const SPEED = 21.5 + 100#|$
+const SPEED = 21.5 #+ 100#|$
 const MAX_HEALTH = 181.09#*999
 const REGEN_AMOUNT = 6.3
 
